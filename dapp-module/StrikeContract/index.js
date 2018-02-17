@@ -15,11 +15,11 @@ class StrikeContract {
     this.unlocked = false
     this.balanceWei = 0
     this.balance = 0
-    this.address = '0x345ca3e014aaf5dca488057592ee47305d9b3e10'
+    this.address = '0x4e71920b7330515faf5ea0c690f1ad06a85fb60c'
     this.genesisBlock = 0
     this.loading = false
     this.options = {
-      readonlyRpcURL: 'http://localhost:9545',
+      readonlyRpcURL: 'https://localhost:8545',
       autoInit: true,
       getPastEvents: false,
       watchFutureEvents: false,
@@ -41,7 +41,7 @@ class StrikeContract {
   initWeb3 () {
     return new Promise((resolve, reject) => {
 
-      let web3Provider = true
+      let web3Provider = false
 
         // check for metamask
         if (global.web3) {
@@ -168,7 +168,7 @@ class StrikeContract {
     })
   }
   getVote () {
-    return this.strikeContract.methods.getVote().call()
+    return this.StrikeContract.methods.getVote().call()
       .then((resp) => {
       console.log(resp)
       return resp
@@ -201,7 +201,7 @@ class StrikeContract {
   }
   decreaseVote () {
     if (!this.account) return Promise.reject(new Error('Unlock Account'))
-    return this.strikeContract.methods.decreaseVote().send({from: this.account})
+    return this.StrikeContract.methods.decreaseVote().send({from: this.account})
     .on('transactionHash', (hash) => {
       console.log(hash)
       this.loading = true
