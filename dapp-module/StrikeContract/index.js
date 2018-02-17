@@ -168,7 +168,7 @@ class StrikeContract {
     })
   }
   getVote () {
-    return this.strikeContract.methods.getVote().call()
+    return this.StrikeContract.methods.getVote().call()
       .then((resp) => {
       console.log(resp)
       return resp

@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     getTotal () {
-      return strikeContract.getTotal().then((total) => {
+      return strikeContract.getVote().then((total) => {
         return this.total
       })
     },
