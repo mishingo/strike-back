@@ -1,95 +1,45 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+    <h2> Total Participants {{voteTotal}} </h2>
+    <button @click="getTotal"> Click Me to get total </button>
+    <button @click="increaseVote" class="btn"> Click Me to vote </button>
   </div>
 </template>
 
 <script>
+const StrikeContract = require('../../dapp-module/StrikeContract')
+let strikeContract = new StrikeContract()
+console.log(strikeContract)
+
 export default {
-  name: 'HelloWorld',
+  name: 'App',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      vote: 1,
+      voteTotal: '0',
+      msg: 'Vote agains FB'
     }
+  },
+  methods: {
+    getTotal () {
+      return strikeContract.getVote().then((total) => {
+        this.voteTotal = total
+        console.log(strikeContract)
+        // return this.total
+      })
+    },
+    increaseVote () {
+      return strikeContract.increaseVote().then((vote) => {
+        return this.getTotal()
+      })
+    }
+  },
+  mounted () {
+    var self = this
+    setTimeout(function () {
+      self.getTotal()
+    }, 3000)
   }
 }
 </script>
@@ -109,5 +59,14 @@ li {
 }
 a {
   color: #42b983;
+}
+.btn {
+  padding: 15px;
+  font-size: 18px;
+  background-color: #DFEDD1;
+  color: #6B9542;
+  font-weight: 900;
+  border-radius: 4px;
+  border: 0 solid;
 }
 </style>

@@ -15,11 +15,11 @@ class StrikeContract {
     this.unlocked = false
     this.balanceWei = 0
     this.balance = 0
-    this.address = '0x4e71920b7330515faf5ea0c690f1ad06a85fb60c'
+    this.address = '0x2c2b9c9a4a25e24b174f26114e8926a9f2128fe4'
     this.genesisBlock = 0
     this.loading = false
     this.options = {
-      readonlyRpcURL: 'https://localhost:8545',
+      readonlyRpcURL: 'https://rinkeby.infura.io',
       autoInit: true,
       getPastEvents: false,
       watchFutureEvents: false,
@@ -72,7 +72,6 @@ class StrikeContract {
         }
       })
     }
-  
 
   /*
    * Check every second for switching network or switching wallet
@@ -175,6 +174,9 @@ class StrikeContract {
     }).catch((err) => {
       console.error(err)
     })
+  }
+  donothing () {
+    console.log(' i did nothing')
   }
 
   /*
