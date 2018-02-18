@@ -1,11 +1,32 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2> Total Participants {{voteTotal}} </h2>
-    <button @click="addAddress" class="btn"> Register for the Union </button>
-    <button @click="increaseVote" class="btn"> Vote for Strike </button>
-    <button @click="decreaseVote" class="btn"> Vote against Strike </button>
-    <button @click="getTotal" class="btn"> Get Total Votes for Strike </button>
+    <div class="row">
+      <div class="row">
+              <img src="../assets/mountainlogo.svg" style="max-width:150px;">
+            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m8">
+            <div class="row left-align">
+              <h1 class="tw-ultrabold" style="font-weight:900;font-size:4em;">{{ msg }}</h1>
+              <p class="tw-normal" style="font-size:1.2em;">Users hate social media platforms, but they use them because they have no option. Facebook, Twitter, Reddit, and Youtube are how people communicate today. These platforms derive all of their power from the data and attention they harvest from users. Individually, every user is disposable, but collectively they are the true source of value. Leveraging this value would enable users to take collective action and bargain with social media platforms to push for changes to these align these platforms with the goals and values of the users.</p>
+            </div>
+            <div class="row mt-l--s left-align">
+              <div class="row mt-m--s"><button @click="addAddress" class="btn-large tw-bold"> Register for the Union </button></div>
+              <div class="row mt-m--s"><button @click="increaseVote" class="btn-large tw-bold"> Vote for Strike </button></div>
+              <div class="row mt-m--s"><button @click="decreaseVote" class="btn-large tw-bold"> Vote against Strike </button></div>
+              <div class="row mt-m--s"><button @click="getTotal" class="btn-large tw-bold"> Get Total Votes for Strike </button></div>
+            </div>
+          </div>
+          <div class="col m4">
+            <div class="row">
+              <h2 style="font-weight:900;font-size:2.8em;" class="green-text"> Total Participants {{voteTotal}} </h2>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,7 +42,7 @@ export default {
     return {
       vote: 1,
       voteTotal: '',
-      msg: 'Vote agains FB'
+      msg: 'Vote against FaceBook'
     }
   },
   methods: {
