@@ -1,8 +1,8 @@
 # U3 : Universal Users Union
-We believe that users are the the most important component of any platform. However, they do not generally possess a collective voice to discuss what would make the world a better place for them. If we could create a tool for users to collectively raise concerns and take action, we could see changes in their favor.
+Users hate social media platforms, but they use them because they have no option. Facebook, Twitter, Reddit, and Youtube are how people communicate today. These platforms derive all of their power from the data and attention they harvest from users. Individually, every user is disposable, but collectively they are the true source of value. Leveraging this value would enable users to take collective action and bargain with social media platforms to push for changes to these align these platforms with the goals and values of the users.
 
 ## What it does
-The proof of concept includes a browser extension that can block domains and a smart contract to vote on whether to block a specific domain.
+U3 is a proof-of-concept that enables users of Facebook to go on strike by voting to collectively block their access to Facebook via a Chrome extension.
 
 ## How we built it
 We used solidity to develop the smart contract and standard chrome extension languages to build the extension.
