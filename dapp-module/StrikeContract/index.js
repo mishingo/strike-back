@@ -15,11 +15,11 @@ class StrikeContract {
     this.unlocked = false
     this.balanceWei = 0
     this.balance = 0
-    this.address = '0x4e71920b7330515faf5ea0c690f1ad06a85fb60c'
+    this.address = "0x345ca3e014aaf5dca488057592ee47305d9b3e10";
     this.genesisBlock = 0
     this.loading = false
     this.options = {
-      readonlyRpcURL: 'https://localhost:8545',
+      readonlyRpcURL: 'https://mainnet.infura.io',
       autoInit: true,
       getPastEvents: false,
       watchFutureEvents: false,
@@ -72,7 +72,6 @@ class StrikeContract {
         }
       })
     }
-  
 
   /*
    * Check every second for switching network or switching wallet
@@ -158,6 +157,24 @@ class StrikeContract {
    *
    */
 
+  allvoters () {
+    return this.StrikeContract.methods.allvoters(new BN(10)).call()
+      .then((resp) => {
+      console.log(resp)
+      return resp
+    }).catch((err) => {
+      console.error(err)
+    })
+  }
+  checkAddress () {
+    return this.StrikeContract.methods.checkAddress().call()
+      .then((resp) => {
+      console.log(resp)
+      return resp
+    }).catch((err) => {
+      console.error(err)
+    })
+  }
   getTotal () {
     return this.StrikeContract.methods.getTotal().call()
       .then((resp) => {
@@ -183,6 +200,22 @@ class StrikeContract {
    *
    */
 
+  addAddress () {
+    if (!this.account) return Promise.reject(new Error('Unlock Account'))
+    return this.StrikeContract.methods.addAddress().send({from: this.account})
+    .on('transactionHash', (hash) => {
+      console.log(hash)
+      this.loading = true
+    })
+      .then((resp) => {
+      this.loading = false
+      console.log(resp)
+      return resp
+    }).catch((err) => {
+      this.loading = false
+      console.error(err)
+    })
+  }
   increaseVote () {
     if (!this.account) return Promise.reject(new Error('Unlock Account'))
     return this.StrikeContract.methods.increaseVote().send({from: this.account})
