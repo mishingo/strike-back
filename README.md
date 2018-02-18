@@ -1,3 +1,5 @@
+![alt text](https://s3.amazonaws.com/localstaffing-resources/images/u3.png "U3")
+
 # U3 : Universal Users Union
 Users hate social media platforms, but they use them because they have no option. Facebook, Twitter, Reddit, and Youtube are how people communicate today. These platforms derive all of their power from the data and attention they harvest from users. Individually, every user is disposable, but collectively they are the true source of value. Leveraging this value would enable users to take collective action and bargain with social media platforms to push for changes to these align these platforms with the goals and values of the users.
 
