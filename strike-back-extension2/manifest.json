@@ -1,0 +1,38 @@
+{
+  "name": "Injecta",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Injecting stuff",
+  "homepage_url": "http://mishingo.com",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "js": ["console.js"]
+    }
+  ],
+  "browser_action": {
+    "default_title": "Inject!"
+  },
+  "permissions": [
+    "https://*/*",
+    "http://*/*",
+    "https://www.facebook.com/*",
+    "tabs",
+    "windows",
+    "storage",
+    "<all_urls>",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "clipboardWrite",
+    "http://localhost:8545/",
+    "https://*.infura.io/"
+  ],
+  "web_accessible_resources": ["script.js"],
+  "content_security_policy":
+    "script-src 'self' unsafe-inline https://*.googleapis.com https://*.bootstrapcdn.com https://*.archive.org http://*/ 'unsafe-eval'; object-src 'self'"
+}
