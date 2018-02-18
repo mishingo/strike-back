@@ -10,8 +10,7 @@ contract StrikeContract {
       if (checkAddress()[0] == true) {
           return false;
       }
-      allvoters[msg.sender] = [true, true];
-      vote = vote + 1;
+      allvoters[msg.sender] = [true, false];
       usertotal = usertotal + 1;
       return true;  
   }
@@ -24,7 +23,7 @@ contract StrikeContract {
   //    Increment the vote when someone votes to go on strike
   function increaseVote () public returns(int8) {
     if (vote > 127) revert();
-    if (checkAddress()[1] == true) {
+    if (checkAddress()[1] == true || checkAddress()[0] == false) {
         return vote;
     }
     allvoters[msg.sender] = [true, true];
@@ -37,7 +36,7 @@ contract StrikeContract {
     if (vote < -127) revert();
     // bool[] memory address_info = new bool[](2);
     // address_info[0] = checkAddress()[0];
-    if (checkAddress()[1] == false) {
+    if (checkAddress()[1] == false || checkAddress()[0] == false) {
         return vote;
     }
     allvoters[msg.sender] = [true, false];
