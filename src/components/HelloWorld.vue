@@ -2,15 +2,10 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2> Total Participants {{voteTotal}} </h2>
-<<<<<<< HEAD
-    <button @click="getTotal"> Click Me to get total </button>
-    <button @click="increaseVote" class="btn"> Click Me to vote </button>
-=======
     <button @click="addAddress" class="btn"> Register for the Union </button>
     <button @click="increaseVote" class="btn"> Vote for Strike </button>
     <button @click="decreaseVote" class="btn"> Vote against Strike </button>
     <button @click="getTotal" class="btn"> Get Total Votes for Strike </button>
->>>>>>> 9f4beebf8e27185ef89795e93b5d3719ab95e2bc
   </div>
 </template>
 
@@ -41,8 +36,6 @@ export default {
       return strikeContract.increaseVote().then((vote) => {
         return this.getTotal()
       })
-<<<<<<< HEAD
-=======
     },
     decreaseVote () {
       return strikeContract.decreaseVote().then((vote) => {
@@ -53,7 +46,6 @@ export default {
       return strikeContract.addAddress().then((vote) => {
         return this.getTotal()
       })
->>>>>>> 9f4beebf8e27185ef89795e93b5d3719ab95e2bc
     }
   },
   mounted () {
