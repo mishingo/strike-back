@@ -15,11 +15,11 @@ class StrikeContract {
     this.unlocked = false
     this.balanceWei = 0
     this.balance = 0
-    this.address = '0x2c2b9c9a4a25e24b174f26114e8926a9f2128fe4'
+    this.address = '0x345ca3e014aaf5dca488057592ee47305d9b3e10'
     this.genesisBlock = 0
     this.loading = false
     this.options = {
-      readonlyRpcURL: 'https://rinkeby.infura.io',
+      readonlyRpcURL: 'http://localhost:9545',
       autoInit: true,
       getPastEvents: false,
       watchFutureEvents: false,
@@ -41,7 +41,7 @@ class StrikeContract {
   initWeb3 () {
     return new Promise((resolve, reject) => {
 
-      let web3Provider = false
+      let web3Provider = true
 
         // check for metamask
         if (global.web3) {
@@ -174,9 +174,6 @@ class StrikeContract {
     }).catch((err) => {
       console.error(err)
     })
-  }
-  donothing () {
-    console.log(' i did nothing')
   }
 
   /*

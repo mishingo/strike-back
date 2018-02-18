@@ -11,13 +11,14 @@
 const StrikeContract = require('../../dapp-module/StrikeContract')
 let strikeContract = new StrikeContract()
 console.log(strikeContract)
+strikeContract.helloWorld()
 
 export default {
   name: 'App',
   data () {
     return {
       vote: 1,
-      voteTotal: '0',
+      voteTotal: '',
       msg: 'Vote agains FB'
     }
   },
