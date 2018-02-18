@@ -4,7 +4,7 @@
       <img src="../assets/mountainlogo.svg">
     </div>
     <div class="row">
-      <router-link to="/fbcampaign" class="btn">Start Now</router-link>
+      <router-link to="/fbcampaign" class="btn-large deep-orange white-text tw-bold mt-l--s">Start Now</router-link>
     </div>
   </div>
 </template>
